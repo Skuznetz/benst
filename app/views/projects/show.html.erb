@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @project.name %></h1>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<p>
+  <%= simple_format @project.description %>
+</p>
+
+<p>
+  Due: <%= @project.due_on %>
+</p>
+
+<div>
+  <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-default" %>
+</div>
