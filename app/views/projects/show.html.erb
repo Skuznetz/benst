@@ -15,5 +15,7 @@
 </p>
 
 <div>
+  <%= link_to 'Add Task', new_project_task_path(@project), class: "btn btn-default" %>
+  <%= link_to 'Add Note', new_project_note_path(@project), class: "btn btn-default" %>
   <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-default" %>
 </div>
