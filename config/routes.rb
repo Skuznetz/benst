@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   resources :tasks
-  resources :notes
   devise_for :users, controllers: { registrations: 'registrations' }
-  
+
   authenticated :user do
     root 'projects#index', as: :authenticated_root
   end
 
-  resources :projects
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :projects do
+    resources :notes
+    resources :tasks do
+      member do
+        post :toggle
+      end
+    end
+  end
+
   root "home#index"
 end
