@@ -63,6 +63,10 @@ class TasksController < ApplicationController
     end
   end
 
+   def toggle
+    @task.update_attributes(completed: !@task.completed)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
