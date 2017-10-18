@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :tasks
   devise_for :users, controllers: { registrations: 'registrations' }
 
@@ -14,8 +15,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
   
+ root "home#index"
 
-  root "home#index"
 end
