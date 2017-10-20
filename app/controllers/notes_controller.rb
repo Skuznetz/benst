@@ -16,7 +16,7 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    @note = Note.new
+    @note = @project.notes.new
   end
 
   # GET /notes/1/edit
@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @note = @project.notes.new(note_params)
 
     respond_to do |format|
       if @note.save
@@ -71,6 +71,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.fetch(:note, {})
+      params.require(:note).permit(:message, :project_id)
     end
 end
