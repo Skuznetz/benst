@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :notes
+  
   def name
     [first_name, last_name].join(" ")
   end
