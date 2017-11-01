@@ -8,7 +8,8 @@
   Owner:
   <%= image_tag gravatar_image_url(@project.owner.email, size: 30, secure: true),
         alt: @project.owner.name %>
-  <%= @project.owner.name %>
+  
+</p>
 
 <p>
   Due: <%= @project.due_on %>
